@@ -4,6 +4,19 @@
 
 A proof‑of‑concept pipeline that reconstructs protein Cα backbones by **minimizing a physically‑motivated energy function under hard Ramachandran constraints**.  The project demonstrates how classical constrained optimization can beat random guessing on small proteins *without* deep learning or massive training data. The Lennard-Jones potential is used to come up with the function we must optimize using Lagrange Constraints.
 
+This is the Lennard-Jones Potential.
+
+$$
+V(r) = 4\varepsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^{6} \right]
+$$
+
+Where:
+
+* $r$ is the distance between particles.
+* $\varepsilon$ sets the depth of the potential well.
+* $\sigma$ is the finite distance at which the inter-particle potential is zero.
+
+
 ---
 
 ## Problem Statement
@@ -56,8 +69,6 @@ Our best run (6.95 Å) **outperforms random baselines (\~14 Å) but falls sh
 * Energy lacks hydrogen bonding, electrostatics, and explicit bond‑length/angle constraints.
 * SLSQP is prone to local minima; global heuristics (basin hopping, CMA‑ES) could improve convergence.
 * Only Cα atoms—full backbone/side‑chain reconstruction would require additional geometric constraints.
-
-Planned improvements are tracked in the [issues](https://github.com/<user>/protein‑lagrange-fold/issues) tab.
 
 ---
 
