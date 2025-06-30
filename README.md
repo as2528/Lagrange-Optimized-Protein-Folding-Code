@@ -2,7 +2,7 @@
 
 # Constrained Lagrange Optimization of Protein Folding
 
-A proof‑of‑concept pipeline that reconstructs protein Cα backbones by **minimizing a physically‑motivated energy function under hard Ramachandran constraints**.  The project demonstrates how classical constrained optimization can beat random guessing on small proteins *without* deep learning or massive training data.
+A proof‑of‑concept pipeline that reconstructs protein Cα backbones by **minimizing a physically‑motivated energy function under hard Ramachandran constraints**.  The project demonstrates how classical constrained optimization can beat random guessing on small proteins *without* deep learning or massive training data. The Lennard-Jones potential is used to come up with the function we must optimize using Lagrange Constraints.
 
 ---
 
