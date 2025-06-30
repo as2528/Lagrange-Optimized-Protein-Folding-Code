@@ -6,7 +6,7 @@ A proof‑of‑concept pipeline that reconstructs protein Cα backbones by **min
 
 ---
 
-## 🔍 Problem Statement
+## Problem Statement
 
 Predict the 3‑D Cα coordinates of the first 50 residues of **PDB 1FME, chain A** using only dihedral angles (φ, ψ) and simple physical priors.
 
@@ -24,13 +24,13 @@ Predict the 3‑D Cα coordinates of the first 50 residues of **PDB 1FME, chai
 | --------------------- | ------------------------------------------------------------------------------------ | ---------------------------- | ----------------------------------- | ------------------------- |
 | Torsion prior         | $E_{torsion}=0.001\sum_i (\phi_i^2+\psi_i^2)$                                        | Keeps angles smooth/physical |                                     |                           |
 | Steric repulsion      | $E_{steric}=\sum_{i<j}\mathbf{1}[r_{ij}<3.8]\,\big(1/(r_{ij}^{12}+\varepsilon)\big)$ | Penalizes clashes            |                                     |                           |
-| Long‑range compaction | $(E\_{contact}=-\sum\_{abs(i-j) >5},0.01/(r\_{ij}^{6}+\varepsilon))$                   | Rewards tertiary contacts |
+| Long‑range compaction | $E\_{contact}=-\sum\_{abs(i-j) >5},0.01/(r\_{ij}^{6}+\varepsilon)$                   | Rewards tertiary contacts |
 
 The optimizer iteratively updates φ/ψ while respecting inequality bounds derived from the Ramachandran plot.
 
 ---
 
-## 📈 Results
+## Results
 
 ```
 Mean worst‑case RMSD (random backbone): 12.45 Å
@@ -51,7 +51,7 @@ Our best run (6.95 Å) **outperforms random baselines (\~14 Å) but falls sh
 
 ---
 
-## ❗ Limitations & Future Work
+## Limitations & Future Work
 
 * Energy lacks hydrogen bonding, electrostatics, and explicit bond‑length/angle constraints.
 * SLSQP is prone to local minima; global heuristics (basin hopping, CMA‑ES) could improve convergence.
@@ -61,16 +61,14 @@ Planned improvements are tracked in the [issues](https://github.com/<user>/prote
 
 ---
 
-## 📜 License
+## License
 
 This project is released under the MIT License; see `LICENSE` for details.
 
 ---
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 * **BioPython** for PDB parsing
 * **SciPy** for SLSQP implementation
-* Classic Ramachandran analysis (G. N. Ramachandran, 1963)
-
-If you use or extend this work, please cite the repository URL and drop a ⭐ if it helped you!
+* Classic Ramachandran analysis (G. N. Ramachandran, 1963
