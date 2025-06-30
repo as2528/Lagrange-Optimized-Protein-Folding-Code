@@ -24,7 +24,7 @@ Predict the 3‑D Cα coordinates of the first 50 residues of **PDB 1FME, chai
 | --------------------- | ------------------------------------------------------------------------------------ | ---------------------------- | ----------------------------------- | ------------------------- |
 | Torsion prior         | $E_{torsion}=0.001\sum_i (\phi_i^2+\psi_i^2)$                                        | Keeps angles smooth/physical |                                     |                           |
 | Steric repulsion      | $E_{steric}=\sum_{i<j}\mathbf{1}[r_{ij}<3.8]\,\big(1/(r_{ij}^{12}+\varepsilon)\big)$ | Penalizes clashes            |                                     |                           |
-| Long‑range compaction | (E\_{contact}=-\sum\_{                                                               | i-j                          | >5},0.01/(r\_{ij}^{6}+\varepsilon)) | Rewards tertiary contacts |
+| Long‑range compaction | (E\_{contact}=-\sum\_{abs(i-j) >5},0.01/(r\_{ij}^{6}+\varepsilon))                    | Rewards tertiary contacts |
 
 The optimizer iteratively updates φ/ψ while respecting inequality bounds derived from the Ramachandran plot.
 
